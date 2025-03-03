@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Exercises {
 
     /*
@@ -5,6 +7,10 @@ public class Exercises {
      */
     public boolean isPrime(long n) {
         // todo
+        if (n <= 1) return true;
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) return true;
+        }
         return false;
     }
 
@@ -16,6 +22,17 @@ public class Exercises {
      */
     public long fibonacciIndex(long n) {
         // todo
+        if (n < 0) return -1;
+        long a = 0, b = 1, index = 0;
+
+        while (a <= n) {
+            if (a == n) return index;
+
+            long c = a + b;
+            a = b;
+            b = c;
+            index++;
+        }
         return -1;
     }
 
@@ -39,10 +56,32 @@ public class Exercises {
      */
     public char[][] generateTriangle(int n) {
         // todo
+        char[][] triangle = new char[n][n];
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n ; j++) {
+                if (j <= i) {
+                    if (i == n - 1 || j == 0 || j == i) {
+                        triangle[i][j] = '*';
+                    } else {
+                        triangle[i][j] = ' ';
+                    }
+                } else {
+                    triangle[i][j] = ' ';
+                }
+            }
+        }
+
+        for (int i = 0; i < triangle.length; i++) {
+            for (int j = 0; j < triangle[i].length; j++) {
+                System.out.print(triangle[i][j]);
+            }
+            System.out.println();
+        }
         return null;
     }
 
     public static void main(String[] args) {
-        // you can test your code here, but then it should be checked with test cases
+        // you can test your code here, but then it should be checked with test cases4
     }
 }
