@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Exercises {
+public class answer {
 
     /*
         complete this function to check if the input number is prime or not
